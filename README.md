@@ -25,6 +25,7 @@ Este projeto é a primeira entrega (Checkpoint 1) do projeto evolutivo da discip
 
 1. Clone o repositório ou baixe os arquivos e abra a pasta no Visual Studio Code.
 2. No terminal, entre na pasta do projeto: cd reserva-rpg.
+3. Instale as dependências caso necessario: npm install
 3. Abra o servidor digitando no terminal: npm run dev.
 4. Abrar o link que aparecer no terminal no navegador da sua escolha.
 
