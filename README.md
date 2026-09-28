@@ -1,75 +1,33 @@
-# React + TypeScript + Vite
+# Reserva RPG
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sistema de reserva de salas para jogos de mesa e RPG em um estabelecimento real, com opções de sala por qualidade (Normal/VIP) e número de pessoas, e possibilidade de encomendar comida antes da sessão — do próprio estabelecimento ou de restaurantes parceiros.
 
-Currently, two official plugins are available:
+## Integrantes
+- Diogo Lepre Pontes
+- Ricardo Gentil Filho
+- Ryan Toledo de Oliveira
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Objetivo
 
-## React Compiler
+Este projeto é a primeira entrega (Checkpoint 1) do projeto evolutivo da disciplina Programação para Sistemas Web. O objetivo é construir uma base de frontend real e organizada, simulando um sistema de reservas de salas temáticas para RPG e jogos de mesa, que será evoluída nas próximas etapas da disciplina com a adição de um backend em Node.js e Fastify.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Funcionalidades
 
-## Expanding the ESLint configuration
+- Listagem de salas com filtro por tipo (Normal/VIP) e capacidade
+- Detalhes da sala com escolha de data e horário (ou reserva do dia inteiro, no caso do Salão)
+- Login mockado, necessário para concluir o pagamento
+- Encomenda de comida do próprio estabelecimento (separada em Comidas e Bebidas) ou de restaurantes parceiros fictícios, com cardápio consultado em tempo real na API pública [TheMealDB](https://www.themealdb.com/api.php)
+- Página de pagamento com escolha entre Pix (chave gerada automaticamente) ou transferência bancária
+- Tela de confirmação com o resumo completo da reserva
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Como instalar e executar
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. Clone o repositório ou baixe os arquivos e abra a pasta no Visual Studio Code.
+2. No terminal, entre na pasta do projeto: cd reserva-rpg.
+3. Abra o servidor digitando no terminal: npm run dev.
+4. Abrar o link que aparecer no terminal no navegador da sua escolha.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+### Login de teste
+- **Usuário:** admin
+- **Senha:** 1234
