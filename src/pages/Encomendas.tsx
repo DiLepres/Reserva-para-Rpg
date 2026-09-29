@@ -81,8 +81,14 @@ export default function Encomendas() {
     setItensSelecionados((prev) => [...prev, item]);
   }
 
-  function adicionarItemParceiro(prato: PratoParceiro) {
-    setItensSelecionados((prev) => [...prev, { id: prato.idMeal, nome: prato.nomeMeal, preco: 0, origem: 'externo' }]);
+  function gerarPrecoParceiro(id: string): number {
+    let soma = 0;
+    for (let i = 0; i < id.length; i++) soma += id.charCodeAt(i);
+    return 25 + (soma % 36); // gera um preço entre R$25 e R$60, sempre igual pro mesmo prato
+  }
+
+  function adicionarItemParceiro(prato: PratoParceiro, preco: number) {
+    setItensSelecionados((prev) => [...prev, { id: prato.idMeal, nome: prato.nomeMeal, preco, origem: 'externo' }]);
   }
 
   function finalizar() {
@@ -173,11 +179,14 @@ export default function Encomendas() {
               {carregando && <p>Carregando cardápio...</p>}
               {erroApi && <p style={{ color: 'red' }}>{erroApi}</p>}
               <ul>
-                {cardapioParceiro.map((prato) => (
-                  <li key={prato.idMeal}>
-                    {prato.nomeMeal} <button onClick={() => adicionarItemParceiro(prato)}>Adicionar</button>
-                  </li>
-                ))}
+                {cardapioParceiro.map((prato) => {
+                  const preco = gerarPrecoParceiro(prato.idMeal);
+                  return (
+                    <li key={prato.idMeal}>
+                      {prato.nomeMeal} — R$ {preco},00 <button onClick={() => adicionarItemParceiro(prato, preco)}>Adicionar</button>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           )}
