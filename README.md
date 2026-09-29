@@ -9,16 +9,15 @@ Sistema de reserva de salas para jogos de mesa e RPG em um estabelecimento real,
 
 ## Objetivo
 
-Este projeto é a primeira entrega (Checkpoint 1) do projeto evolutivo da disciplina Programação para Sistemas Web. O objetivo é construir uma base de frontend real e organizada, simulando um sistema de reservas de salas temáticas para RPG e jogos de mesa, que será evoluída nas próximas etapas da disciplina com a adição de um backend em Node.js e Fastify.
+Este é a primeira parte do projeto da N1 da matéria de Programação para Sistemas Web. O objetivo é construir uma base de frontend real e organizada, simulando um sistema de reservas de salas temáticas para RPG e jogos de mesa.
 
 ## Funcionalidades
 
-- Listagem de salas com filtro por tipo (Normal/VIP) e capacidade
-- Detalhes da sala com escolha de data e horário (ou reserva do dia inteiro, no caso do Salão)
-- Login mockado, necessário para concluir o pagamento
-- Encomenda de comida do próprio estabelecimento (separada em Comidas e Bebidas) ou de restaurantes parceiros fictícios, com cardápio consultado em tempo real na API pública [TheMealDB](https://www.themealdb.com/api.php)
-- Página de pagamento com escolha entre Pix (chave gerada automaticamente) ou transferência bancária
-- Tela de confirmação com o resumo completo da reserva
+- Listagem de salas com filtro por tipo de sala.
+- Login mockado, necessário para concluir o pagamento.
+- Encomenda de comida do próprio estabelecimento ou de restaurantes parceiros fictícios, com cardápio consultado em tempo real na API pública [TheMealDB](https://www.themealdb.com/api.php).
+- Página de pagamento com escolha entre Pix ou transferência bancária.
+- Tela de confirmação com o resumo completo da reserva.
 
 
 ## Como instalar e executar
