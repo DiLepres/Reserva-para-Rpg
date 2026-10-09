@@ -7,10 +7,25 @@ import DetalhesReserva from './pages/DetalhesReserva';
 import Encomendas from './pages/Encomendas';
 import Pagamento from './pages/Pagamento';
 import Confirmacao from './pages/Confirmacao';
+import MinhasReservas from './pages/MinhasReservas';
+
+const ARMAS = ['⚔️', '🗡️', '🛡️', '🏹', '🪓'];
+
+function ColunaDecorativa({ lado }: { lado: 'esquerda' | 'direita' }) {
+  return (
+    <div className={`decor-lateral decor-${lado}`} aria-hidden="true">
+      {ARMAS.map((arma, i) => (
+        <span key={i}>{arma}</span>
+      ))}
+    </div>
+  );
+}
 
 function App() {
   return (
     <>
+      <ColunaDecorativa lado="esquerda" />
+      <ColunaDecorativa lado="direita" />
       <Navbar />
       <Routes>
         <Route path="/" element={<Principal />} />
@@ -20,6 +35,7 @@ function App() {
         <Route path="/encomendas" element={<Encomendas />} />
         <Route path="/pagamento" element={<Pagamento />} />
         <Route path="/confirmacao" element={<Confirmacao />} />
+        <Route path="/minhas-reservas" element={<MinhasReservas />} />
       </Routes>
     </>
   );

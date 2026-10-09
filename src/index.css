@@ -156,3 +156,34 @@ label {
   padding: 2rem 1.5rem;
   width: 100%;
 }
+
+/* Decoração lateral (armas) — só aparece em telas largas */
+.decor-lateral {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 90px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 2.2rem;
+  filter: grayscale(100%) opacity(0.14);
+  pointer-events: none;
+  z-index: 0;
+}
+.decor-esquerda { left: 0; }
+.decor-direita { right: 0; }
+
+@media (min-width: 1300px) {
+  .decor-lateral { display: flex; }
+}
+
+/* Foto de destaque dentro das páginas */
+.foto-destaque {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--panel-border);
+  object-fit: cover;
+  display: block;
+}

@@ -12,6 +12,7 @@ export default function Navbar() {
         padding: '1rem 1.5rem',
         borderBottom: '1px solid var(--panel-border)',
         background: 'var(--bg-alt)',
+        
       }}
     >
       <Link to="/" style={{ fontFamily: 'var(--font-titulo)', fontSize: '1.3rem', color: 'var(--gold-bright)' }}>
@@ -21,6 +22,7 @@ export default function Navbar() {
         <Link to="/">Início</Link>
         <Link to="/reservar">Reservar Sala</Link>
         <Link to="/login">Login</Link>
+        <Link to="/minhas-reservas">Minhas Reservas</Link>
       </div>
     </nav>
   );

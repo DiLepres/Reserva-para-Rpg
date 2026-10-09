@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { salas } from '../data/salas';
 import type { TipoSala } from '../types';
@@ -7,12 +7,18 @@ export default function ReservaSala() {
   const [filtroTipo, setFiltroTipo] = useState<TipoSala | 'todos'>('todos');
   const [filtroCapacidade, setFiltroCapacidade] = useState<string>('todas');
 
-  const salasFiltradas = salas.filter((sala) => {
-    const bateTipo = filtroTipo === 'todos' || sala.tipo === filtroTipo;
-    const bateCapacidade = filtroCapacidade === 'todas' || String(sala.capacidade) === filtroCapacidade;
-    return bateTipo && bateCapacidade;
-  });
-
+    const salasFiltradas = useMemo(() => {
+    const inicioFiltro = performance.now();
+    const resultado = salas.filter((sala) => {
+      const bateTipo = filtroTipo === 'todos' || sala.tipo === filtroTipo;
+      const bateCapacidade = filtroCapacidade === 'todas' || String(sala.capacidade) === filtroCapacidade;
+      return bateTipo && bateCapacidade;
+    });
+    const fimFiltro = performance.now();
+    console.log(`Filtro recalculado (useMemo) em ${(fimFiltro - inicioFiltro).toFixed(4)} ms`);
+    return resultado;
+  }, [filtroTipo, filtroCapacidade]);
+  
   return (
     <div className="container" style={{ textAlign: 'center' }}>
       <h1>Escolha a sala</h1>
